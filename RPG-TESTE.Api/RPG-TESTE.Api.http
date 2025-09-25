@@ -1,0 +1,6 @@
+@RPG_TESTE.Api_HostAddress = http://localhost:5277
+
+GET {{RPG_TESTE.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
