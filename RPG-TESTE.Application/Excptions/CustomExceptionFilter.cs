@@ -1,14 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using RPG_TESTE.Domain.UnifiedResponse;
+using FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using RPG_TESTE.Application.UnifiedResponse;
-using RPG_TESTE.Domain.UnifiedResponse;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
+
 
 namespace RPG_TESTE.Application.Excptions
 {

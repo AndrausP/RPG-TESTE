@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPG-TESTE.Domain", "RPG-TES
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPG_TESTE.Infrastructure", "RPG_TESTE.Infrastructure\RPG_TESTE.Infrastructure.csproj", "{CE7282D9-0F68-4EF6-B652-34842E08DF85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPG-TESTE.Application", "RPG-TESTE.Application\RPG-TESTE.Application.csproj", "{B147D458-2F57-425F-94D3-0059704A9731}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{CE7282D9-0F68-4EF6-B652-34842E08DF85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE7282D9-0F68-4EF6-B652-34842E08DF85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE7282D9-0F68-4EF6-B652-34842E08DF85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B147D458-2F57-425F-94D3-0059704A9731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B147D458-2F57-425F-94D3-0059704A9731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B147D458-2F57-425F-94D3-0059704A9731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B147D458-2F57-425F-94D3-0059704A9731}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
