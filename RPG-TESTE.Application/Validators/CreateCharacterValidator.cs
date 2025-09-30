@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 using RPG_TESTE.Application.DTOs;
-using RPG_TESTE.Infrastructure.Repositories;
+using RPG_TESTE.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +11,17 @@ namespace RPG_TESTE.Application.Validators
 {
     public class CreateCharacterValidator : AbstractValidator<CharacterCreateDTO>
     {
-        punlic CreateCharacterValidator(CharacterRepository )
+        public CreateCharacterValidator(ICharacterRepository characterRepository )
         {
             RuleLevelCascadeMode = CascadeMode.Stop;
             RuleFor(c => c.Name)
                 .NotEmpty().WithMessage("Name is required.")
-                .MaximumLength(100).WithMessage("Name cannot exceed 100 characters.");
+                .MaximumLength(100).WithMessage("Name cannot exceed 100 characters.")
+                .MustAsync(async (dto, name, cancellation) =>
+            {
+                var existingCharacter = await characterRepository.GetByNameAsync(name);
+                return existingCharacter == null;
+            }).WithMessage("A character with the same name already exists.");
             RuleFor(c => c.Level)
                 .GreaterThan(0).WithMessage("Level must be greater than 0.");
             RuleFor(c => c.Strength)
