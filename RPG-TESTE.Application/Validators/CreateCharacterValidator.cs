@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 using RPG_TESTE.Application.DTOs;
-using RPG_TESTE.Infrastructure.Repositories;
+using RPG_TESTE.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace RPG_TESTE.Application.Validators
 {
     public class CreateCharacterValidator : AbstractValidator<CharacterCreateDTO>
     {
-        public CreateCharacterValidator(CharacterRepository characterRepository )
+        public CreateCharacterValidator(ICharacterRepository characterRepository )
         {
             RuleLevelCascadeMode = CascadeMode.Stop;
             RuleFor(c => c.Name)

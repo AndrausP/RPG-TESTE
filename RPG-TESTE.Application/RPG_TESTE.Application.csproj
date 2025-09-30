@@ -15,8 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RPG_TESTE.Infrastructure\RPG_TESTE.Infrastructure.csproj" />
-	  <ProjectReference Include="..\RPG-TESTE.Domain\RPG-TESTE.Domain.csproj" />
+	  <ProjectReference Include="..\RPG-TESTE.Domain\RPG_TESTE.Domain.csproj" />
   </ItemGroup>
 
 </Project>

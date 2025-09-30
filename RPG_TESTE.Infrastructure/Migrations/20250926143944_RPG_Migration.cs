@@ -20,7 +20,8 @@ namespace RPG_TESTE.Infrastructure.Migrations
                 .WithColumn("Strength").AsInt32().NotNullable()
                 .WithColumn("Defense").AsInt32().NotNullable()
                 .WithColumn("Intelligence").AsInt32().NotNullable()
-                .WithColumn("Class").AsString().NotNullable();
+                .WithColumn("Class").AsString().NotNullable()
+                .WithColumn("IsAlive").AsBoolean().NotNullable().WithDefaultValue(true);
         }
     }
 }

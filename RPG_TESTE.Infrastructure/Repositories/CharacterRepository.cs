@@ -1,5 +1,4 @@
-﻿using RPG_TESTE.Domain.DTOs;
-using RPG_TESTE.Infrastructure.Database;
+﻿using RPG_TESTE.Infrastructure.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;

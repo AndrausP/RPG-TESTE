@@ -10,5 +10,10 @@ namespace RPG_TESTE.Infrastructure.Database
         {
         }
         public DbSet<Character> Characters { get; set; }
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            base.ConfigureConventions(configurationBuilder);
+            configurationBuilder.Properties<string>().HaveMaxLength(255);
+        }
     }
 }
