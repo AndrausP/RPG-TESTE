@@ -11,17 +11,16 @@ namespace RPG_TESTE.Api.Controllers.CharacterController
         [HttpPost("CreateCharacter")]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CharacterResponseDTO))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<CharacterResponseDTO>> CreateCharacterControll([FromBody] CharacterCreateDTO characterCreateDTO)
+        public async Task<Result<CharacterResponseDTO>> CreateCharacterControll([FromBody] CharacterCreateDTO characterCreateDTO)
         {
             var result = await characterService.CreateCharacterAsync(characterCreateDTO);
-            if (result is null)
-                return BadRequest(result);
-            return CreatedAtAction(nameof(GetAllCharacterControll), new { id = result.Data.Id }, result.Data);
+            return result;
+
         }
         [HttpGet("GetAllCharacters")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<CharacterResponseDTO>))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<List<CharacterResponseDTO>>> GetAllCharacterControll()
+        public async Task<ActionResult<IEnumerable<CharacterResponseDTO>>> GetAllCharacterControll()
         {
             var list = await characterQueryService.GetAllCharactersAsync();
             return Ok(list);
@@ -47,16 +46,13 @@ namespace RPG_TESTE.Api.Controllers.CharacterController
                 return Result<CharacterUpdateDTO>.Failure("Character not found.", 404);
             return Result<CharacterUpdateDTO>.Success(chaUpdate.Data, StatusCodes.Status200OK);
         }
-        [HttpGet("GetCharacterClassByEnumIntOrName/{id}")]
+        [HttpGet("GetCharacterClassByEnumIntOrName")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CharacterResponseDTO))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<CharacterResponseDTO>> GetCharacterClass(RpgClass rpgClass)
+        public async Task<ActionResult<IEnumerable<CharacterResponseDTO>>> GetCharacterClass(RpgClass rpgClass)
         {
-            string rpgClassString = rpgClass.ToString();
-            var character = await characterQueryService.GetAllClasses(rpgClassString);
-            if (character is null)
-                return NotFound("Character not found.");
-            return Ok(character);
+            var list = await characterQueryService.GetAllClasses(rpgClass);
+            return Ok(list);
         }
     }
 }

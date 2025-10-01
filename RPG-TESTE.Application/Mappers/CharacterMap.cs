@@ -21,7 +21,7 @@ namespace RPG_TESTE.Application.Mappers
                 Strength = dto.Strength,
                 Defense = dto.Defense,
                 Intelligence = dto.Intelligence,
-                Class = (RpgClass)dto.ClassId
+                RpgClass = (RpgClass)dto.RpgClass,
             };
         }
         public static CharacterResponseDTO ToCharacterResponseDto(this Character entity)
@@ -29,10 +29,12 @@ namespace RPG_TESTE.Application.Mappers
             return new CharacterResponseDTO(
                 entity.Id, 
                 entity.Name, 
+                entity.HP,
                 entity.Level, 
                 entity.Strength, 
                 entity.Defense, 
                 entity.Intelligence, 
+                (int)entity.RpgClass,
                 entity.IsAlive
                 );
         }

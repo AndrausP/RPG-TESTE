@@ -9,15 +9,17 @@ namespace RPG_TESTE.Application.DTOs
     public record CharacterUpdateDTO
     {
         public string Name { get; set; }
+        public int HP { get; set; }
         public int Level { get; set; }
         public int Strength { get; set; }
         public int Defense { get; set; }
         public int Intelligence { get; set; }
         public bool IsAlive { get; set; }
 
-        public CharacterUpdateDTO(string name, int level, int strength, int defense, int intelligence, bool isAlive)
+        public CharacterUpdateDTO(string name,int hp, int level, int strength, int defense, int intelligence, bool isAlive)
         {
             Name = name;
+            HP = hp;
             Level = level;
             Strength = strength;
             Defense = defense;
