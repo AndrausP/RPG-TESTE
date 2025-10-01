@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using RPG_TESTE.Application.DTOs;
+using RPG_TESTE.Application.DTOs.Character;
 using RPG_TESTE.Application.Excptions;
 using RPG_TESTE.Application.Interfaces.CharacterInterfaces;
 using RPG_TESTE.Application.Services.CharacterService;
@@ -16,6 +16,7 @@ namespace RPG_TESTE.Application
             services.AddScoped<CustomExceptionFilter>();
             services.AddScoped<ICharacterQueryService, CharacterQueryService>();
             services.AddScoped<ICharacterService, CharacterService>();
+
 
             return services;
         }

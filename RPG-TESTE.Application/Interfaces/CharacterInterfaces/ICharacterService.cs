@@ -1,4 +1,4 @@
-﻿using RPG_TESTE.Application.DTOs;
+﻿using RPG_TESTE.Application.DTOs.Character;
 using RPG_TESTE.Domain.UnifiedResponse;
 using System;
 using System.Collections.Generic;

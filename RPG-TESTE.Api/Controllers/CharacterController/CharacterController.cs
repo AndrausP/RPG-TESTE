@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RPG_TESTE.Application.DTOs;
+using RPG_TESTE.Application.DTOs.Character;
 using RPG_TESTE.Application.Interfaces.CharacterInterfaces;
 using RPG_TESTE.Domain.Enums;
 using RPG_TESTE.Domain.UnifiedResponse;

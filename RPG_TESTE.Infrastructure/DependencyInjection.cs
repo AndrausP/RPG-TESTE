@@ -15,6 +15,8 @@ namespace RPG_TESTE.Infrastructure
             services.AddDbContext<AppDbContext>(options =>
                  options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<ICharacterRepository, CharacterRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+
 
             return services;
         }

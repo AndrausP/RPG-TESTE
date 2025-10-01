@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using RPG_TESTE.Application.DTOs;
+using RPG_TESTE.Application.DTOs.Character;
 using RPG_TESTE.Application.Interfaces.CharacterInterfaces;
 using RPG_TESTE.Application.Mappers;
 using RPG_TESTE.Domain.Interfaces;
