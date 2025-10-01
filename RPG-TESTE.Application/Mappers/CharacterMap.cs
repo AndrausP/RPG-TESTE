@@ -12,6 +12,7 @@ namespace RPG_TESTE.Application.Mappers
 {
     public static class CharacterMap
     {
+
         public static Character ToEntity(this CharacterCreateDTO dto)
         {
             return new Character
