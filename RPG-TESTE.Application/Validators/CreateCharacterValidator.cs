@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using RPG_TESTE.Application.DTOs;
-using RPG_TESTE.Domain.Enums;
 using RPG_TESTE.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -31,9 +30,8 @@ namespace RPG_TESTE.Application.Validators
                 .GreaterThanOrEqualTo(0).WithMessage("Defense cannot be negative.");
             RuleFor(c => c.Intelligence)
                 .GreaterThanOrEqualTo(0).WithMessage("Intelligence cannot be negative.");
-            RuleFor(c => c.RpgClass)
-                .Must(value => Enum.IsDefined(typeof(RpgClass), value))
-                    .WithMessage("Invalid profile.");
+            RuleFor(c => c.ClassId)
+                .GreaterThan(0).WithMessage("ClassId must be greater than 0.");
         }
     }
 }

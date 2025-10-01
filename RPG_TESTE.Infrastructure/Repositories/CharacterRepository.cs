@@ -19,7 +19,7 @@ namespace RPG_TESTE.Infrastructure.Repositories
             await dbContext.SaveChangesAsync();
             return character;
         }
-        public async Task<IEnumerable<Character>> GetAllAsyncRepository()
+        public async Task<List<Character>> GetAllAsyncRepository()
         {
             return await dbContext.Characters.ToListAsync();
         }
@@ -27,10 +27,14 @@ namespace RPG_TESTE.Infrastructure.Repositories
         {
             return await dbContext.Characters.FindAsync(id);
         }
-        public Task UpdateAsyncRepository(Character character)
+        public async Task<Character?> UpdateAsyncRepository(Character character)
         {
-            dbContext.Characters.Update(character);
-            return Task.CompletedTask;
+            var existingCharacter = await dbContext.Characters.FindAsync(character.Id);
+            if (existingCharacter == null)
+                return null;
+            dbContext.Entry(existingCharacter).CurrentValues.SetValues(character);
+            await dbContext.SaveChangesAsync();
+            return existingCharacter;
         }
         public async Task<bool> DeleteAsyncRepository(int id)
         {
@@ -45,9 +49,9 @@ namespace RPG_TESTE.Infrastructure.Repositories
         {
             return await dbContext.Characters.FirstOrDefaultAsync(c => c.Name == name);
         }
-        public async Task<IEnumerable<Character>> GetClassCharacter(RpgClass rpgClass)
+        public async Task<List<Character>> GetClassCharacter(RpgClass rpgClass)
         {
-            return await dbContext.Characters.Where(c => c.RpgClass == rpgClass).ToListAsync();
+            return await dbContext.Characters.Where(c => c.Class == rpgClass).ToListAsync();
         }
 
     }

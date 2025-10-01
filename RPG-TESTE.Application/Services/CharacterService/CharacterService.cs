@@ -29,7 +29,7 @@ namespace RPG_TESTE.Application.Services.CharacterService
             if (entity is null)
                 return Result<CharacterUpdateDTO>.Failure("Character not found.", 404);
             var validation = await validatorUp.ValidateAsync(characterUpdateDTO);
-            if (!validation.IsValid)
+            if (validation.IsValid is false)
             {
                 var errors = string.Join("; ", validation.Errors.Select(e => e.ErrorMessage));
                 return Result<CharacterUpdateDTO>.Failure(errors, 400);

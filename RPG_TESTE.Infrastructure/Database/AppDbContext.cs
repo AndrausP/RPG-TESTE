@@ -13,7 +13,7 @@ namespace RPG_TESTE.Infrastructure.Database
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
         {
             base.ConfigureConventions(configurationBuilder);
-            
+            configurationBuilder.Properties<string>().HaveMaxLength(255);
         }
     }
 }

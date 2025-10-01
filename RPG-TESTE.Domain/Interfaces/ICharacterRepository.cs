@@ -11,11 +11,11 @@ namespace RPG_TESTE.Domain.Interfaces
     public interface ICharacterRepository
     {
         Task<Character?> AddAsyncRepository(Character character);
-        Task<IEnumerable<Character>> GetAllAsyncRepository();
+        Task<List<Character>> GetAllAsyncRepository();
         Task<Character?> GetByIdAsyncRepository(int id);
-        Task UpdateAsyncRepository(Character character);
+        Task<Character?> UpdateAsyncRepository(Character character);
         Task<bool> DeleteAsyncRepository(int id);
         Task<Character?> GetByNameAsync(string name);
-        Task<IEnumerable<Character>> GetClassCharacter(RpgClass rpgClass);
+        Task<List<Character>> GetClassCharacter(RpgClass rpgClass);
     }
 }
