@@ -16,11 +16,12 @@ namespace RPG_TESTE.Infrastructure.Migrations
             Create.Table("Characters")
                 .WithColumn("Id").AsInt32().PrimaryKey().Identity()
                 .WithColumn("Name").AsString().NotNullable()
-                .WithColumn("HitPoints").AsInt32().NotNullable()
+                .WithColumn("HP").AsInt32().NotNullable()
+                .WithColumn("Level").AsInt32().NotNullable()
                 .WithColumn("Strength").AsInt32().NotNullable()
                 .WithColumn("Defense").AsInt32().NotNullable()
                 .WithColumn("Intelligence").AsInt32().NotNullable()
-                .WithColumn("Class").AsString().NotNullable()
+                .WithColumn("RpgClass").AsInt32().NotNullable()
                 .WithColumn("IsAlive").AsBoolean().NotNullable().WithDefaultValue(true);
         }
     }
